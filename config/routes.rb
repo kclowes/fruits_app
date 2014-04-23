@@ -10,6 +10,8 @@ FruitsApp::Application.routes.draw do
 
   post '/fruits', to: 'fruits#create'
   get '/fruits', to: 'fruits#show'
+  get '/fruits/:id/edit', to: 'fruits#edit'
+  put '/fruits/:id', to: 'fruits#update'
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

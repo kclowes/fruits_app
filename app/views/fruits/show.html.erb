@@ -1,4 +1,5 @@
 <% @fruits.each do |fruit| %>
-<%= fruit.name %>
+  <%= fruit.name %>
   <%= fruit.description %>
+  <a href="/fruits/<%= fruit.id %>/edit">Edit <%= fruit.name %> </a>
 <% end %>
