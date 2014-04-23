@@ -1,10 +1,7 @@
 class FruitsController < ApplicationController
 
   def create
-    fruit = Fruit.new
-    fruit.name = params[:name]
-    fruit.description = params[:description]
-    fruit.save
+    Fruit.create(name: params[:name], description: params[:description])
     redirect_to '/fruits'
   end
 
@@ -21,7 +18,13 @@ class FruitsController < ApplicationController
     fruit = Fruit.find_by(:id => id)
     fruit.update(name: params[:name], description: params[:description])
     redirect_to '/fruits'
+  end
 
+  def destroy
+    id = params[:id]
+    fruit = Fruit.find(id)
+    fruit.destroy
+    redirect_to '/fruits'
   end
 
 end

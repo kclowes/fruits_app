@@ -29,4 +29,24 @@ feature 'Fruits' do
     expect(page).to have_content('Apple')
     expect(page).to have_content('Red')
   end
+
+  scenario 'user can delete an item' do
+    visit '/'
+    expect(page).to have_content('welcome!')
+    click_on 'Add Fruit'
+    fill_in 'name', with: 'Banana'
+    fill_in 'description', with: 'Yellow'
+    click_on 'Submit'
+    expect(page).to have_content('Banana')
+    expect(page).to have_content('Yellow')
+    click_on 'Add Another Fruit'
+    fill_in 'name', with: 'Apple'
+    fill_in 'description', with: 'Red'
+    click_on 'Submit'
+    expect(page).to have_content('Apple')
+    expect(page).to have_content('Red')
+    click_on 'Delete Apple'
+    expect(page).to_not have_content('Apple')
+    expect(page).to_not have_content('Red')
+  end
 end

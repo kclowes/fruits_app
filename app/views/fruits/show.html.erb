@@ -2,4 +2,7 @@
   <%= fruit.name %>
   <%= fruit.description %>
   <a href="/fruits/<%= fruit.id %>/edit">Edit <%= fruit.name %> </a>
+  <a data-method="delete" href="/fruits/<%= fruit.id %>">Delete <%= fruit.name %></a>
 <% end %>
+
+<a href="/fruits/new">Add Another Fruit</a>
